@@ -43,3 +43,14 @@ To execute the Reddit Clone App, a Docker image is built from Dockerfile using f
 `docker build -t asadhanif3188/redditclone:v1 .`
 
 ![Build Image](./screenshots/build-image.png)
+
+## Step 4: Push the Docker Image To DockerHub
+Now push this Docker Image to DockerHub so our Deployment file can pull the image and run the app in Kubernetes pods.
+
+ * First login to DockerHub account using Command i.e `docker login` and give your username & password.
+ * Then use `docker push asadhanif3188/redditclone:v1` for pushing to the DockerHub.
+
+**Note:** This step is optional, in case you have built the Docker image on the same machine. If K8s/Minikube is running on anyother machine then image need be downloaded from DockerHub.  
+
+![Image at DockerHub](./screenshots/docker-hub-image.png)
+
