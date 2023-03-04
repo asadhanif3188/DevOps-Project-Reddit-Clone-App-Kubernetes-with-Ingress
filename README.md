@@ -120,5 +120,6 @@ To create the service, execute the following command.
 
 `kubectl apply -f reddit-clone-service.yaml`
 
-![Apply Service](./screenshots/deployment.png)
+![Apply Service](./screenshots/service.png)
+
 
