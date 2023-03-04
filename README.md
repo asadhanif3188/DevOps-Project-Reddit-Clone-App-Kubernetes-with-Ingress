@@ -16,12 +16,12 @@ To deploy the application on Kubernetes, one should have the following tools ins
 # App Deployment Steps on K8s  
 Following are the steps to deploy the Reddit Clone App on Kubernetes/Minikube cluster: 
 
-## Step 01: Clone the App Code 
+## Step 1: Clone the App Code 
 Clone the application code to the machine. 
 
 `git clone https://gitlab.com/asadhanif3188/devops-project-reddit-clone-app-kubernetes-with-ingress.git`
 
-## Step 02: Dockerfile 
+## Step 2: Dockerfile 
 Add a Dockerfile, in case it is not already added. 
 
 ```
@@ -37,4 +37,9 @@ EXPOSE 3000
 CMD ["npm","run","dev"]
 ```
 
+## Step 3: Build Image 
+To execute the Reddit Clone App, a Docker image is built from Dockerfile using following command.
 
+`docker build -t asadhanif3188/redditclone:v1 .`
+
+![Build Image](./screenshots/build-image.png)
