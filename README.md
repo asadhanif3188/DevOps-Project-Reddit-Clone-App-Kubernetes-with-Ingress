@@ -84,5 +84,10 @@ spec:
         - containerPort: 3000
 ```
 
+### Step 4 (b): Apply Deployment File
+Once deployment file is ready, it is time to apply this file to create resources like Deployment, ReplicaSet and Pods. To create the resources execute the following command.
 
+`kubectl apply -f reddit-clone-deployment.yaml`
+
+![Apply Deployment](./screenshots/deployment.png)
 
