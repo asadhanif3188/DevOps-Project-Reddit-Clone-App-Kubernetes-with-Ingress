@@ -58,7 +58,7 @@ Now push this Docker Image to DockerHub so our Deployment file can pull the imag
 It is time to start the real game, by deploying the Reddit Clone App on K8s cluster with the help of **Deployment manifest** file. 
 
 ### Step 4 (a): Create a Deployment File
-Let's Create a Deployment file, i.e. `reddit-clone-deployment.yaml` , for our Application. Use the following code for the *reddit-clone-deployment.yaml* file:
+Let's Create a Deployment file, i.e. `reddit-clone-deployment.yaml`, for our Application. Use the following code for the *reddit-clone-deployment.yaml* file:
 
 ```
 apiVersion: apps/v1
@@ -85,9 +85,40 @@ spec:
 ```
 
 ### Step 4 (b): Apply Deployment File
-Once deployment file is ready, it is time to apply this file to create resources like Deployment, ReplicaSet and Pods. To create the resources execute the following command.
+Once deployment file is ready, it is time to apply this file to create resources like Deployment, ReplicaSet and Pods. To create the resources, execute the following command.
 
 `kubectl apply -f reddit-clone-deployment.yaml`
 
 ![Apply Deployment](./screenshots/deployment.png)
+
+## Step 5: Expose the app as a Service 
+Once the Pods are running under a deployment, the application can be accessed internally. But we want to make the app accessible from outside the cluster. So we need to create a service to expose the app. 
+
+### Step 5 (a): Create a Service File
+Let's Create a Service file, i.e. `reddit-clone-service.yaml`, for our Application. Use the following code for the *reddit-clone-service.yaml* file:
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: reddit-clone-service
+  labels:
+    app: reddit-clone
+spec:
+  selector:
+    app: reddit-clone
+  ports:
+    - name: http
+      protocol: TCP
+      port: 30000
+      targetPort: 30000
+  type: ClusterIP
+```
+
+### Step 5 (b): Apply Service File
+To create the service, execute the following command.
+
+`kubectl apply -f reddit-clone-service.yaml`
+
+![Apply Service](./screenshots/deployment.png)
 
