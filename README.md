@@ -24,7 +24,7 @@ Clone the application code to the machine.
 ## Step 02: Dockerfile 
 Add a Dockerfile, in case it is not already added. 
 
-`
+```
 FROM node:19-alpine3.15
 
 WORKDIR /reddit-clone
@@ -35,6 +35,6 @@ RUN npm install
 EXPOSE 3000
 
 CMD ["npm","run","dev"]
-`
+```
 
 
