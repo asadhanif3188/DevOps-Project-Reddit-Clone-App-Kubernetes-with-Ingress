@@ -54,3 +54,35 @@ Now push this Docker Image to DockerHub so our Deployment file can pull the imag
 
 ![Image at DockerHub](./screenshots/docker-hub-image.png)
 
+## Step 4: Deploy the app to Kubernetes
+It is time to start the real game, by deploying the Reddit Clone App on K8s cluster with the help of **Deployment manifest** file. 
+
+### Step 4 (a): Create a Deployment File
+Let's Create a Deployment file, i.e. `reddit-clone-deployment.yaml` , for our Application. Use the following code for the *reddit-clone-deployment.yaml* file:
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reddit-clone-deployment
+  labels:
+    app: reddit-clone
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: reddit-clone
+  template:
+    metadata:
+      labels:
+        app: reddit-clone
+    spec:
+      containers:
+      - name: reddit-clone
+        image: asadhanif3188/redditclone:v1
+        ports:
+        - containerPort: 3000
+```
+
+
+
