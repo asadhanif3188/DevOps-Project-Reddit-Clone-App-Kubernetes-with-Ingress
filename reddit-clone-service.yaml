@@ -7,9 +7,11 @@ metadata:
 spec:
   selector:
     app: reddit-clone
+  type: NodePort
   ports:
     - name: http
       protocol: TCP
       port: 30000
       targetPort: 30000
-  type: ClusterIP
+      nodePort: 31000
+  
